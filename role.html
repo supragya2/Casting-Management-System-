@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:white;
+    font-family:Arial, sans-serif;
+    text-align:center;
+}
+
+h1{
+    font-size:60px;
+    margin-top:30px;
+    font-weight:bold;
+}
+
+h2{
+    font-size:30px;
+    margin:20px 0 40px;
+    font-family:Georgia, serif;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    gap:120px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:400px;
+}
+
+.card img{
+    width:100%;
+    height:550px;
+    object-fit:cover;
+    border:6px solid white;
+    border-radius:40px;
+}
+
+.text{
+    position:relative;
+    margin-top:-510px;
+    color:white;
+    font-size:18px;
+    font-family:Georgia, serif;
+    padding:20px;
+    line-height:1.4;
+    text-align: right;
+}
+
+button{
+    margin-top:470px;
+    padding:12px 35px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:black;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ddd;
+}
+
+.two{
+    color: #000;
+    text-align: right;
+}
+     </style>
+</head>
+<body>
+     
+    <h1>Welcome to CastFlow!</h1>
+    <h2>Choose Your Role</h2>
+
+    <div class="container">
+
+        <div class="card">
+            <img src="designer.jpg" alt="Designer">
+            <div class="text two">
+                Find models for <br>
+                your design and bring your <br>
+                designs to life
+            </div>
+            <button>Designer</button>
+        </div>
+
+        <div class="card">
+            <img src="model.jpg" alt="Model">
+            <div class="text">
+                Find your work as a model <br>
+                for fashion shows and <br>
+                runway events
+            </div>
+            <button>Model</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
