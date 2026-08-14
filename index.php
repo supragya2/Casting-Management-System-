@@ -1,6 +1,6 @@
 <?php
 session_start();
-// if already logged in, send to the right dashboard
+
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] == 'designer') {
         header("Location: designer/dashboard.php");
@@ -25,17 +25,17 @@ if (isset($_SESSION['role'])) {
         <div class="tagline">Choose Your Role</div>
 
         <div class="role-grid">
-            <div class="role-card" style="background-image:url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200');">
-                <div class="role-copy">Find models for your design and bring your designs to life</div>
+            <div class="role-card" style="background-image:url(designer.jpg);">
+                <div class="role-copy">Find models for your design and bring your designs to life.</div>
                 <a href="signup.php?role=designer" class="role-btn">Designer</a>
             </div>
-            <div class="role-card" style="background-image:url('https://images.unsplash.com/photo-1512310604669-443f26c35f52?q=80&w=1200');">
-                <div class="role-copy">Find your work as a model for fashion shows and runway events</div>
+            <div class="role-card" style="background-image:url(model.jpg);">
+                <div class="role-copy">Find your work as a model for fashion shows and runway events.</div>
                 <a href="signup.php?role=model" class="role-btn">Model</a>
             </div>
         </div>
 
-        <p style="margin-top:40px; font-family:var(--font-serif); color:var(--muted);">
+        <p style="margin-top:40px; font-family:var(--font-serif); color:var(--muted); font-size:18px;">
             Already have an account? <a href="login.php" style="color:#7db8ff; text-decoration:underline;">Log in</a>
         </p>
     </div>
