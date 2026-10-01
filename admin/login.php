@@ -82,9 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
 
             <div class="demo-fill-card">
-                <div>
-                    <strong>Default Admin:</strong> admin@castflow.com / admin123
-                </div>
+              
                 <button type="button" onclick="document.getElementById('adminId').value='admin@castflow.com'; document.getElementById('adminPass').value='admin123';">Fill Demo</button>
             </div>
 
