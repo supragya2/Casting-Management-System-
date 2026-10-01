@@ -10,7 +10,9 @@ CREATE TABLE designer (
     password VARCHAR(255),
     experience VARCHAR(100),
     bio TEXT,
-    profile_image VARCHAR(255)
+    profile_image VARCHAR(255),
+    is_verified TINYINT(1) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE model (
@@ -25,7 +27,9 @@ CREATE TABLE model (
     weight VARCHAR(20),
     experience VARCHAR(100),
     bio TEXT,
-    profile_image VARCHAR(255)
+    profile_image VARCHAR(255),
+    is_verified TINYINT(1) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE design (
@@ -61,6 +65,7 @@ CREATE TABLE invitation (
     design_id INT,
     description TEXT,
     status VARCHAR(20) DEFAULT 'pending',
+    is_verified TINYINT(1) DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -70,5 +75,22 @@ CREATE TABLE request (
     designer_id INT,
     design_id INT,
     status VARCHAR(20) DEFAULT 'pending',
+    is_verified TINYINT(1) DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE admin (
+    admin_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    full_name VARCHAR(100) NOT NULL,
+    role VARCHAR(50) DEFAULT 'admin',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Default admin account (email: admin@castflow.com | pass: admin123)
+INSERT INTO admin (username, email, password, full_name, role)
+VALUES ('admin', 'admin@castflow.com', '$2y$10$wTfZT4w7w2QxL5c1i4n6m.hCqj5nI7S0fE2m6p0sK4w.fO1d9oQxe', 'Super Administrator', 'superadmin')
+ON DUPLICATE KEY UPDATE username=username;
+

@@ -32,7 +32,12 @@ $designers = mysqli_query($conn, "SELECT * FROM designer ORDER BY designer_id DE
             <div class="item-card">
                 <div class="thumb"><?php echo strtoupper(substr($d['designer_name'],0,1)); ?></div>
                 <div class="body">
-                    <h3><?php echo $d['designer_name']; ?></h3>
+                    <h3>
+                        <?php echo $d['designer_name']; ?>
+                        <?php if (!empty($d['is_verified'])) { ?>
+                            <span class="badge badge-verified" style="font-size:10px; margin-left:4px;">✓ Verified</span>
+                        <?php } ?>
+                    </h3>
                     <div class="meta"><?php echo $d['experience']; ?></div>
                     <div class="actions">
                         <a href="designer_view.php?id=<?php echo $d['designer_id']; ?>" class="btn btn-sm btn-dark">View Designs</a>

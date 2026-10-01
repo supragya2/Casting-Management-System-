@@ -57,7 +57,14 @@ $invites = mysqli_query($conn, "
                 <div class="body">
                     <h3><?php echo $i['design_name']; ?></h3>
                     <div class="meta">by <a href="designer_view.php?id=<?php echo $i['designer_id']; ?>"><?php echo $i['designer_name']; ?></a></div>
-                    <div><span class="badge badge-<?php echo $i['status']; ?>"><?php echo ucfirst($i['status']); ?></span></div>
+                    <div style="display:flex; gap:6px; align-items:center;">
+                        <span class="badge badge-<?php echo $i['status']; ?>"><?php echo ucfirst($i['status']); ?></span>
+                        <?php if (!empty($i['is_verified'])) { ?>
+                            <span class="badge badge-verified">✓ Verified</span>
+                        <?php } else { ?>
+                            <span class="badge badge-unverified">Unverified</span>
+                        <?php } ?>
+                    </div>
                     <?php if ($i['status'] == 'pending') { ?>
                     <div class="actions">
                         <form method="POST">

@@ -511,6 +511,262 @@ table.data-table th { background: #f3f1ea; font-size: 12px; text-transform: uppe
 .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
 .tag { background: #f3f1ea; padding: 5px 12px; border-radius: 20px; font-size: 12px; color: #555; }
 
+/* ==========================================================================
+   ADMIN MODULE & VERIFICATION STYLES
+   ========================================================================== */
+
+/* Badges for Verification and Direction */
+.badge-verified {
+    background: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #a5d6a7;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.badge-unverified {
+    background: #fff8e1;
+    color: #b78103;
+    border: 1px solid #ffe082;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.badge-model-req {
+    background: #ede7f6;
+    color: #4527a0;
+    border: 1px solid #d1c4e9;
+}
+.badge-designer-inv {
+    background: #fce4ec;
+    color: #880e4f;
+    border: 1px solid #f8bbd0;
+}
+.badge-superadmin {
+    background: #141414;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+}
+
+/* Admin Sidebar Role Tag */
+.sidebar .admin-role-tag {
+    font-family: var(--font-display);
+    letter-spacing: 1.5px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: -18px;
+}
+
+/* Nav Badge Counter */
+.nav-count {
+    margin-left: auto;
+    background: #2c2c2c;
+    color: var(--muted);
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+.sidebar nav a.active .nav-count {
+    background: var(--black);
+    color: var(--white);
+}
+.nav-count.alert {
+    background: var(--gold);
+    color: var(--black);
+    font-weight: 700;
+}
+
+/* Toolbar & Filter Bar */
+.filter-bar {
+    background: var(--white);
+    border: 1px solid #e6e3db;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.filter-input {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 13px;
+    font-family: var(--font-body);
+    min-width: 220px;
+    background: #fdfdfc;
+}
+.filter-input:focus, .filter-select:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(201, 161, 59, 0.2);
+}
+.filter-select {
+    padding: 9px 14px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 13px;
+    font-family: var(--font-body);
+    background: #fdfdfc;
+    cursor: pointer;
+}
+
+/* Tabs */
+.tab-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e6e3db;
+    padding-bottom: 12px;
+}
+.tab-btn {
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    background: #eae8e1;
+    border: none;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.tab-btn:hover {
+    background: #ddd9cf;
+    color: var(--black);
+}
+.tab-btn.active {
+    background: var(--black);
+    color: var(--white);
+}
+
+/* Action Buttons */
+.btn-verify {
+    background: #2e7d32;
+    color: var(--white);
+    border: 1px solid #2e7d32;
+}
+.btn-verify:hover {
+    background: #1b5e20;
+    color: var(--white);
+}
+.btn-unverify {
+    background: #f57c00;
+    color: var(--white);
+    border: 1px solid #f57c00;
+}
+.btn-unverify:hover {
+    background: #e65100;
+    color: var(--white);
+}
+
+/* Thumbnail Previews in Tables */
+.table-thumb {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: #eee;
+    border: 1px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+}
+.table-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+}
+.avatar-placeholder {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #141414;
+    color: var(--gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* Monospace Code Pill */
+.code-tag {
+    font-family: 'Consolas', 'Menlo', monospace;
+    font-size: 11px;
+    background: #eef1f5;
+    padding: 3px 6px;
+    border-radius: 4px;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+}
+
+/* Table Responsive Container */
+.table-wrap {
+    overflow-x: auto;
+    border-radius: 14px;
+    border: 1px solid #e6e3db;
+    background: var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+.table-wrap table.data-table {
+    border-radius: 0;
+    margin-bottom: 0;
+}
+.data-table th {
+    white-space: nowrap;
+}
+.data-table tr:hover td {
+    background-color: #faf9f6;
+}
+
+/* Quick Fill Demo Card in Login */
+.demo-fill-card {
+    background: rgba(201, 161, 59, 0.12);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 18px;
+    font-size: 13px;
+    color: #e5c365;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.demo-fill-card button {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    border-radius: 12px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: opacity 0.2s;
+}
+.demo-fill-card button:hover {
+    opacity: 0.9;
+}
+
+
 
 
 

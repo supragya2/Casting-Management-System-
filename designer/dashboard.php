@@ -2,7 +2,6 @@
 session_start();
 include('../config.php');
 
-// only designers allowed here
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 'designer') {
     header("Location: ../login.php");
     exit;
@@ -10,22 +9,18 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'designer') {
 
 $id = $_SESSION['user_id'];
 
-// count designs
 $result = mysqli_query($conn, "SELECT COUNT(*) AS total FROM design WHERE designer_id = $id");
 $row = mysqli_fetch_assoc($result);
 $design_count = $row['total'];
 
-// count invitations sent
 $result = mysqli_query($conn, "SELECT COUNT(*) AS total FROM invitation WHERE designer_id = $id");
 $row = mysqli_fetch_assoc($result);
 $invite_count = $row['total'];
 
-// count pending requests received
 $result = mysqli_query($conn, "SELECT COUNT(*) AS total FROM request WHERE designer_id = $id AND status = 'pending'");
 $row = mysqli_fetch_assoc($result);
 $pending_count = $row['total'];
 
-// recent requests
 $recent = mysqli_query($conn, "
     SELECT r.*, m.model_name, d.design_name
     FROM request r, model m, design d

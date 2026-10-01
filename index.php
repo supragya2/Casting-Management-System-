@@ -5,6 +5,9 @@ if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] == 'designer') {
         header("Location: designer/dashboard.php");
         exit;
+    } elseif ($_SESSION['role'] == 'admin') {
+        header("Location: admin/dashboard.php");
+        exit;
     } else {
         header("Location: model/dashboard.php");
         exit;
@@ -14,7 +17,7 @@ if (isset($_SESSION['role'])) {
 <!DOCTYPE html>
 <html>
 <head>
-<title>CastFlow</title>
+<title>CastFlow - Fashion Casting Platform</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -37,6 +40,8 @@ if (isset($_SESSION['role'])) {
 
         <p style="margin-top:40px; font-family:var(--font-serif); color:var(--muted); font-size:18px;">
             Already have an account? <a href="login.php" style="color:#7db8ff; text-decoration:underline;">Log in</a>
+            <span style="margin: 0 10px; color: #555;">&bull;</span>
+            <a href="admin/login.php" style="color:var(--gold); text-decoration:none; font-size:15px; font-weight:600;">Admin Portal &rarr;</a>
         </p>
     </div>
 </div>

@@ -35,12 +35,19 @@ $invites = mysqli_query($conn, "
         <div class="empty-state">You haven't invited any models yet.</div>
     <?php } else { ?>
         <table class="data-table">
-            <tr><th>Model</th><th>Design</th><th>Status</th><th>Sent</th></tr>
+            <tr><th>Model</th><th>Design</th><th>Status</th><th>Verification</th><th>Sent</th></tr>
             <?php while ($i = mysqli_fetch_assoc($invites)) { ?>
             <tr>
                 <td><a href="model_view.php?id=<?php echo $i['model_id']; ?>"><?php echo $i['model_name']; ?></a></td>
                 <td><?php echo $i['design_name']; ?></td>
                 <td><span class="badge badge-<?php echo $i['status']; ?>"><?php echo ucfirst($i['status']); ?></span></td>
+                <td>
+                    <?php if (!empty($i['is_verified'])) { ?>
+                        <span class="badge badge-verified">✓ Verified</span>
+                    <?php } else { ?>
+                        <span class="badge badge-unverified">Unverified</span>
+                    <?php } ?>
+                </td>
                 <td><?php echo $i['created_at']; ?></td>
             </tr>
             <?php } ?>

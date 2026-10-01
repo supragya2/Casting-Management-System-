@@ -43,7 +43,12 @@ $designs = mysqli_query($conn, "SELECT * FROM design WHERE designer_id = $did OR
     <div class="profile-header">
         <div class="avatar"><?php echo strtoupper(substr($designer['designer_name'],0,1)); ?></div>
         <div>
-            <h2><?php echo $designer['designer_name']; ?></h2>
+            <h2>
+                <?php echo $designer['designer_name']; ?>
+                <?php if (!empty($designer['is_verified'])) { ?>
+                    <span class="badge badge-verified" style="font-size:12px; margin-left:6px; vertical-align:middle;">✓ Verified</span>
+                <?php } ?>
+            </h2>
             <div class="sub"><?php echo $designer['experience']; ?></div>
         </div>
     </div>

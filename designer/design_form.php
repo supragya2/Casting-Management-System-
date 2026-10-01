@@ -10,12 +10,14 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'designer') {
 $id = $_SESSION['user_id'];
 $editing = null;
 
-// if id is in the URL, we are editing an existing design
+
 if (isset($_GET['id'])) {
     $design_id = $_GET['id'];
     $result = mysqli_query($conn, "SELECT * FROM design WHERE design_id = $design_id AND designer_id = $id");
     $editing = mysqli_fetch_assoc($result);
 }
+
+
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
@@ -25,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $type = mysqli_real_escape_string($conn, $_POST['type']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
 
-    // handle image upload if a file was chosen
+
     $image_name = "";
     if (isset($_FILES['image']) && $_FILES['image']['name'] != "") {
         $image_name = time() . "_" . $_FILES['image']['name'];
@@ -45,10 +47,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         mysqli_query($conn, $sql);
     }
 
+
     header("Location: designs.php");
     exit;
 }
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,6 +98,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <div class="form-actions">
                 <button type="submit" class="btn btn-dark">Save</button>
                 <a href="designs.php" class="btn btn-ghost">Cancel</a>
+
+                
             </div>
         </form>
     </div>

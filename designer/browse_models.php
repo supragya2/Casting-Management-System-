@@ -33,7 +33,12 @@ $models = mysqli_query($conn, "SELECT * FROM model ORDER BY model_id DESC");
             <div class="item-card">
                 <div class="thumb"><?php echo strtoupper(substr($m['model_name'],0,1)); ?></div>
                 <div class="body">
-                    <h3><?php echo $m['model_name']; ?></h3>
+                    <h3>
+                        <?php echo $m['model_name']; ?>
+                        <?php if (!empty($m['is_verified'])) { ?>
+                            <span class="badge badge-verified" style="font-size:10px; margin-left:4px;">✓ Verified</span>
+                        <?php } ?>
+                    </h3>
                     <div class="meta"><?php echo $m['gender']; ?> &middot; Age <?php echo $m['age']; ?></div>
                     <div class="actions">
                         <a href="model_view.php?id=<?php echo $m['model_id']; ?>" class="btn btn-sm btn-dark">View Profile</a>

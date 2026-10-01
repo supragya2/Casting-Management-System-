@@ -1,4 +1,4 @@
-// Confirm destructive actions
+
 document.addEventListener('click', function (e) {
     const el = e.target.closest('[data-confirm]');
     if (el && !confirm(el.getAttribute('data-confirm'))) {
@@ -6,7 +6,7 @@ document.addEventListener('click', function (e) {
     }
 });
 
-// Live preview for file inputs that have a matching [data-preview="#id"]
+
 document.addEventListener('change', function (e) {
     if (e.target.matches('input[type="file"][data-preview]')) {
         const target = document.querySelector(e.target.getAttribute('data-preview'));
@@ -19,7 +19,7 @@ document.addEventListener('change', function (e) {
     }
 });
 
-// Auto-hide flash messages after a few seconds
+
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.flash-msg').forEach(function (msg) {
         setTimeout(() => { msg.style.transition = 'opacity .4s'; msg.style.opacity = '0'; }, 4000);

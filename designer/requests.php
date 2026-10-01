@@ -46,12 +46,19 @@ $requests = mysqli_query($conn, "
         <div class="empty-state">No requests yet.</div>
     <?php } else { ?>
         <table class="data-table">
-            <tr><th>Model</th><th>Design</th><th>Status</th><th>Received</th><th></th></tr>
+            <tr><th>Model</th><th>Design</th><th>Status</th><th>Verification</th><th>Received</th><th></th></tr>
             <?php while ($r = mysqli_fetch_assoc($requests)) { ?>
             <tr>
                 <td><a href="model_view.php?id=<?php echo $r['model_id']; ?>"><?php echo $r['model_name']; ?></a></td>
                 <td><?php echo $r['design_name']; ?></td>
                 <td><span class="badge badge-<?php echo $r['status']; ?>"><?php echo ucfirst($r['status']); ?></span></td>
+                <td>
+                    <?php if (!empty($r['is_verified'])) { ?>
+                        <span class="badge badge-verified">✓ Verified</span>
+                    <?php } else { ?>
+                        <span class="badge badge-unverified">Unverified</span>
+                    <?php } ?>
+                </td>
                 <td><?php echo $r['created_at']; ?></td>
                 <td>
                     <?php if ($r['status'] == 'pending') { ?>

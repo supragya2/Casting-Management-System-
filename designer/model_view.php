@@ -46,7 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <div class="profile-header">
         <div class="avatar"><?php echo strtoupper(substr($model['model_name'],0,1)); ?></div>
         <div>
-            <h2><?php echo $model['model_name']; ?></h2>
+            <h2>
+                <?php echo $model['model_name']; ?>
+                <?php if (!empty($model['is_verified'])) { ?>
+                    <span class="badge badge-verified" style="font-size:12px; margin-left:6px; vertical-align:middle;">✓ Verified</span>
+                <?php } ?>
+            </h2>
             <div class="sub"><?php echo $model['gender']; ?> &middot; Age <?php echo $model['age']; ?> &middot; <?php echo $model['height']; ?>cm &middot; <?php echo $model['weight']; ?>kg</div>
         </div>
     </div>

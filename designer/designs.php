@@ -42,6 +42,8 @@ $designs = mysqli_query($conn, "SELECT * FROM design WHERE designer_id = $id ORD
                         No image
                     <?php } ?>
                 </div>
+
+
                 <div class="body">
                     <h3><?php echo $d['design_name']; ?></h3>
                     <div class="meta"><?php echo $d['type']; ?> &middot; <?php echo $d['fabric']; ?> &middot; Size <?php echo $d['size']; ?></div>
@@ -54,6 +56,8 @@ $designs = mysqli_query($conn, "SELECT * FROM design WHERE designer_id = $id ORD
         <?php } ?>
         </div>
     <?php } ?>
+
+    
 </div>
 </div>
 <script src="../js/script.js"></script>
